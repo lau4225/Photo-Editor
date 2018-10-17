@@ -43,8 +43,21 @@ public class Main extends Application {
 
         MenuBar menuBar = new MenuBar(fichier, action);
 
+        Menu action2 = new Menu("Action");
+        Menu chargerImage2 = new Menu("Charger une image");
+
+        MenuItem reinitialiser2 = new MenuItem("Réinitialiser");
+        MenuItem image12 = new MenuItem("Image 1");
+        MenuItem image22 = new MenuItem("Image 2");
+        MenuItem image32 = new MenuItem("Image 3");
+
+        chargerImage2.getItems().addAll(image12, image22, image32);
+
+        action2.getItems().addAll(reinitialiser2);
+
+
         ContextMenu contextMenu = new ContextMenu();
-        contextMenu.getItems().addAll(fichier, action);
+        contextMenu.getItems().addAll(action2, chargerImage2);
 
 
         //SLIDERS
@@ -131,9 +144,15 @@ public class Main extends Application {
 
     });
 
+        reinitialiser2.setOnAction(event -> {reinitialiser.fire();});
+
         image1.setOnAction(event -> { reinitialiser.fire();imageView.setImage(picA);});
         image2.setOnAction(event -> { reinitialiser.fire();imageView.setImage(picB);});
         image3.setOnAction(event -> { reinitialiser.fire();imageView.setImage(picC);});
+
+        image12.setOnAction(event -> { reinitialiser.fire();imageView.setImage(picA);});
+        image22.setOnAction(event -> { reinitialiser.fire();imageView.setImage(picB);});
+        image32.setOnAction(event -> { reinitialiser.fire();imageView.setImage(picC);});
 
 
 
